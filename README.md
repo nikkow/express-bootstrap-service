@@ -54,7 +54,3 @@ var server = app.listen(3000, function () {
 ```
 
 _Note: this sample app requires express to be installed, along with express-bootstrap. Then run `node app.js` on your folder._
-
-## Authoring / Contributions
-
-This module was initially written by [Nicolas Nunge](http://www.nikkow.eu). Do not hesitate to submit your own modificaiton. If you encounter any issue, please use the issues tracking system of Github.
