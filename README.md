@@ -22,9 +22,11 @@ This will create virtual routes to serve the bootstrap assets. By default, the `
 
 Some options can be configured with the `init()` method, e.g.:
 
-	bootstrap.init({
-		minified: false
-	}); 
+```javascript
+bootstrap.init({
+	minified: false
+}); 
+```
 
 The following options can be customized:
 
@@ -34,20 +36,22 @@ The following options can be customized:
 
 ## Sample App
 
-	var bootstrapService = require("express-bootstrap");
-	var express = require('express');
-	var app = express();
+```javascript
+var bootstrapService = require("express-bootstrap");
+var express = require('express');
+var app = express();
 	
-	app.use(bootstrapService.serve);
-	app.get('/', function (req, res) {
-	  res.send('Hello World!');
-	});
+app.use(bootstrapService.serve);
+app.get('/', function (req, res) {
+  res.send('Hello World!');
+});
 
-	var server = app.listen(3000, function () {
-	  var host = server.address().address;
-	  var port = server.address().port;
-	  console.log('Example app listening at http://%s:%s', host, port);
-	});
+var server = app.listen(3000, function () {
+  var host = server.address().address;
+  var port = server.address().port;
+  console.log('Example app listening at http://%s:%s', host, port);
+});
+```
 
 _Note: this sample app requires express to be installed, along with express-bootstrap. Then run `node app.js` on your folder._
 
