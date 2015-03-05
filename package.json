@@ -14,7 +14,7 @@
     "express",
     "bootstrap"
   ],
-  "author": "Nicolas Nunge <me@nikkow.eu> (http://www.nikkox.eu)",
+  "author": "Nicolas Nunge <me@nikkow.eu> (http://www.nikkow.eu)",
   "license": "GNU",
   "bugs": {
     "url": "https://github.com/nikkow/express-bootstrap-service/issues"
