@@ -1,6 +1,6 @@
 {
   "name": "express-bootstrap-service",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Express Middleware to serve the latest bootstrap framework on Frontend.",
   "main": "index.js",
   "scripts": {
