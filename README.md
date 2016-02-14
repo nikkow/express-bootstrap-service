@@ -18,7 +18,7 @@ Simply add a middleware using the `app.use()` method
 
 	app.use(bootstrap.serve);
 
-This will create virtual routes to serve the bootstrap assets. By default, the `/bootstrap/js`, `/bootstrap/css`, `/bootstrap/fonts` routes will be created.
+This will create virtual routes to serve the bootstrap assets. By default, the `/bootstrap/js`, `/bootstrap/css`, `/bootstrap/fonts`, and `/bootstrap/theme` routes will be created.
 
 Some options can be configured with the `init()` method, e.g.:
 
