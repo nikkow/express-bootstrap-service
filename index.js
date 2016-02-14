@@ -68,6 +68,30 @@ var BootstrapService = {
       });
     });
 
+    // - Serving optional theme CSS file
+    req.app.get("/"+ BootstrapService.options.path +"/theme", function(req, res, next) {
+
+      if(BootstrapService.options.minified === true) {
+        bsThemePath = BootstrapService.options.resourcesPath +"css/bootstrap-theme.min.css";
+      } else {
+        bsThemePath = BootstrapService.options.resourcesPath +"css/bootstrap-theme.css";
+      }
+
+      fs.readFile(bsThemePath, function (err, data) {
+        if (err) {
+          if(typeof(next) == "function") {
+            next();
+          } else {
+            res.status(404);
+            res.send("The file cannot be found. Please check documentation.");
+          }
+        } else {
+          res.set("Content-Type", "text/css");
+          res.send(data);
+        }
+      });
+    });
+
     // - Serving fonts files (Glyphicons)
     res.app.get("/"+ BootstrapService.options.path +"/fonts/:font_file", function(req, res, next) {
       fs.readFile(BootstrapService.options.resourcesPath +"fonts/"+ req.params.font_file, function (err, data) {
