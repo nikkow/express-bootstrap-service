@@ -68,6 +68,30 @@ var BootstrapService = {
       });
     });
 
+    // - Serving Theme
+    req.app.get("/"+ BootstrapService.options.path +"/theme", function(req, res, next) {
+
+      if(BootstrapService.options.minified === true) {
+        bsThemePath = BootstrapService.options.resourcesPath +"css/bootstrap-theme.min.css";
+      } else {
+        bsThemePath = BootstrapService.options.resourcesPath +"css/bootstrap-theme.css";
+      }
+
+      fs.readFile(bsThemePath, function (err, data) {
+        if (err) {
+          if(typeof(next) == "function") {
+            next();
+          } else {
+            res.status(404);
+            res.send("The file cannot be found. Please check documentation.");
+          }
+        } else {
+          res.set("Content-Type", "text/css");
+          res.send(data);
+        }
+      });
+    });
+
     // - Serving fonts files (Glyphicons)
     res.app.get("/"+ BootstrapService.options.path +"/fonts/:font_file", function(req, res, next) {
       fs.readFile(BootstrapService.options.resourcesPath +"fonts/"+ req.params.font_file, function (err, data) {
@@ -88,7 +112,8 @@ var BootstrapService = {
     // - Creating locals to easily include them in the views.
     res.locals.bootstrapJSHeader = '<script type="text/javascript" src="/'+ BootstrapService.options.path+'/js"></script>';
     res.locals.bootstrapCSSHeader = '<link href="/'+ BootstrapService.options.path+'/css" rel="stylesheet" />';
-    res.locals.bootstrapFullHtml = res.locals.bootstrapJSHeader +"\n"+ res.locals.bootstrapCSSHeader;
+    res.locals.bootstrapTHEMEHeader = '<link href="/'+ BootstrapService.options.path+'/theme" rel="stylesheet" />';
+    res.locals.bootstrapFullHtml = res.locals.bootstrapJSHeader +"\n"+ res.locals.bootstrapCSSHeader +"\n"+ res.locals.bootstrapTHEMEHeader;
 
     next();
   },
