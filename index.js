@@ -113,7 +113,8 @@ var BootstrapService = {
     res.locals.bootstrapJSHeader = '<script type="text/javascript" src="/'+ BootstrapService.options.path+'/js"></script>';
     res.locals.bootstrapCSSHeader = '<link href="/'+ BootstrapService.options.path+'/css" rel="stylesheet" />';
     res.locals.bootstrapTHEMEHeader = '<link href="/'+ BootstrapService.options.path+'/theme" rel="stylesheet" />';
-    res.locals.bootstrapFullHtml = res.locals.bootstrapJSHeader +"\n"+ res.locals.bootstrapCSSHeader +"\n"+ res.locals.bootstrapTHEMEHeader;
+    res.locals.bootstrapFullHtml = res.locals.bootstrapJSHeader +"\n"+ res.locals.bootstrapCSSHeader;
+    res.locals.bootstrapThemedFullHtml = res.locals.bootstrapJSHeader +"\n"+ res.locals.bootstrapCSSHeader +"\n"+ res.locals.bootstrapTHEMEHeader;
 
     next();
   },
